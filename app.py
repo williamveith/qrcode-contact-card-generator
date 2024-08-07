@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 from werkzeug.utils import secure_filename
 import json
 from pathlib import Path
+from PIL import Image
 
 app = Flask(__name__)
 
@@ -14,6 +15,9 @@ app.config["image_folder"] = image_folder
 def allowed_file(filename):
     return "." in filename and filename.rsplit(".", 1)[1].lower() in allowed_extensions
 
+def create_empty_png(path, width=600, height=600):
+    empty_image = Image.new("RGBA", (width, height), (255, 255, 255, 0))
+    empty_image.save(path)
 
 def validate_paths(list_of_paths):
     if isinstance(list_of_paths, str):
@@ -28,6 +32,7 @@ def validate_paths(list_of_paths):
             if path.name == "contact.json" and not path.exists():
                 content = {
                     "version": "",
+                    "label": "",
                     "last_name": "",
                     "first_name": "",
                     "full_name": "",
@@ -44,6 +49,8 @@ def validate_paths(list_of_paths):
                 }
                 with path.open("w", encoding="utf-8") as f:
                     json.dump(content, f, indent=4)
+            elif (path.name == "icon.png" or path.name == "favicon.png") and not path.exists():
+                create_empty_png(path=path)
             elif not path.exists():
                 path.touch()
 
@@ -77,7 +84,7 @@ def index():
 
     vcard = generate_vcard(contact)
     return render_template(
-        "index.html", vcard=vcard, business_name="Swirless Car\nDetailing Business"
+        "index.html", vcard=vcard, business_name=contact.get("label","")
     )
 
 
@@ -86,6 +93,7 @@ def edit():
     if request.method == "POST":
         contact = {
             "version": request.form["version"],
+            "label": request.form["label"],
             "last_name": request.form["last_name"],
             "first_name": request.form["first_name"],
             "full_name": request.form["full_name"],
