@@ -2,16 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='css/general.css') }}" />
-    <title>3x3 Image Table</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/general.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.png') }}">
+    <title>QR Contact Card</title>
   </head>
   <body>
     <div class="buttons">
       <button onclick="window.print()">Print</button>
       <button onclick="window.location.href='/edit'">Edit Contact</button>
+      <button onclick="window.location.href='/edit-icon'">Change Icon</button>
   </div>
     <div class="page">
       <table>
@@ -35,7 +35,7 @@
           {% for col in range(3) %}
           <td>
             <img
-              src="{{ url_for('static', filename='images/back.png') }}"
+              src="{{ url_for('static', filename='images/icon.png') }}"
               alt="Back Image {{ row*3 + col + 1 }}" />
             <pre>{{ business_name }}</pre>
           </td>
