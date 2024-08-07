@@ -6,7 +6,7 @@
 
 ## Project Structure
 
-It is a basic flask app. Run app.py or use the VSCode Python Debugger: Flask launch item 
+It is a basic flask app. Run app.py or use the VSCode Python Debugger: Flask launch item
 
     ```text
     qrcode-contact-card-generator
