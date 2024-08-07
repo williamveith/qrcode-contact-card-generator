@@ -1,8 +1,8 @@
 # QR Code Contact Card Generator
 
-    This was originally a 2 second project to hook up the supply store dude with a QR Code Contact Card for his business. After adding a feature that allowed the contact information to be edited, I added an icon edit feature, turning this into a general purpose app. Add your contact information and desired icon to generate a contact card with a qr code containing your VCARD & the customized icon you selected
+This was originally a 2 second project to hook up the supply store dude with a QR Code Contact Card for his business. After adding a feature that allowed the contact information to be edited, I added an icon edit feature, turning this into a general purpose app. Add your contact information and desired icon to generate a contact card with a qr code containing your VCARD & the customized icon you selected
 
-    Very very simple app that was meant to be a one off. Only pushed it to a public repo because this use case will occur again and I don't want to redo work Ive already done
+Very very simple app that was meant to be a one off. Only pushed it to a public repo because this use case will occur again and I don't want to redo work Ive already done
 
 ## Project Structure
 
