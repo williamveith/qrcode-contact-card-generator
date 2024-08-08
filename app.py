@@ -41,7 +41,7 @@ def validate_paths(list_of_paths):
                     "city": "",
                     "state": "",
                     "work_phone": "",
-                    "cell_phone": "(",
+                    "cell_phone": "",
                     "fax": "",
                     "email": "",
                     "note": "",
