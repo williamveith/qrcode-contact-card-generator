@@ -4,7 +4,7 @@
         {
             "label": "Dockerhub Build, Push",
             "type": "shell",
-            "command": "docker build -t overtime0022/qrcode-contact-card-generator-web:latest . && docker push overtime0022/qrcode-contact-card-generator-web:latest",
+            "command": "docker buildx build --platform linux/amd64,linux/arm64 -t overtime0022/qrcode-contact-card-generator-web:latest . --push",
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -24,7 +24,7 @@
         {
             "label": "Git and Dockerhub Push",
             "type": "shell",
-            "command": "docker build -t overtime0022/qrcode-contact-card-generator-web:latest . && docker push overtime0022/qrcode-contact-card-generator-web:latest && git add . && git commit -m 'Full github and dockerhub push from current local project' && git push",
+            "command": "docker buildx build --platform linux/amd64,linux/arm64 -t overtime0022/qrcode-contact-card-generator-web:latest . --push && git add . && git commit -m 'Full github and dockerhub push from current local project' && git push",
             "group": {
                 "kind": "build",
                 "isDefault": true
