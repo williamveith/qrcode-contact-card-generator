@@ -1,14 +1,11 @@
-@keyframes boxShadowPulse {
-
+@keyframes box-shadow-pulse {
     0%,
     100% {
         box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem #5b04e7;
-        /* Light shadow at the beginning and end */
     }
 
     50% {
         box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem #3a02a7;
-        /* Deeper shadow at the midpoint */
     }
 }
 
@@ -18,20 +15,20 @@
 }
 
 body {
-    background: #000000ee;
+    background: #000e;
 }
 
-input[type=text],
-input[type=email],
+input[type="text"],
+input[type="email"],
 textarea {
     width: 100vw;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
-    border-width: 0px;
-    animation: boxShadowPulse 10s ease-in-out infinite;
+    border-width: 0;
+    animation: box-shadow-pulse 10s ease-in-out infinite;
     font-size: 12pt;
-    background-color: #000000;
+    background-color: #000;
     border-radius: 8px;
 }
 
@@ -49,18 +46,18 @@ label {
 }
 
 button,
-input[type=submit] {
+input[type="submit"] {
     width: 200px;
     height: 50px;
     box-sizing: border-box;
     border-width: 0px;
-    animation: boxShadowPulse 10s ease-in-out infinite;
+    animation: box-shadow-pulse 10s ease-in-out infinite;
     font-size: 12pt;
     background-color: #000000;
     border-radius: 8px;
 }
 
-input[type=submit] {
+input[type="submit"] {
     margin-top: 20px;
     width: 200px;
     height: 50px;

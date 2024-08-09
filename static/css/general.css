@@ -3,6 +3,7 @@
         size: 8.5in 11in;
         margin: 0.5in
     }
+    
     body::after {
         font-family: 'Courier New', Courier, monospace;
         content: "Created using Will's template engine | www.linkedin.com/in/william-veith/";
@@ -15,6 +16,7 @@
         font-style: italic;
         color: grey;
     }
+
     .buttons {
         display: none;
     }
@@ -46,7 +48,7 @@ td {
 }
 
 td {
-    padding: 0in;
+    padding: 0;
     width: 2.25in;
     height: 3.25in;
     text-align: center;
@@ -60,7 +62,7 @@ svg {
 }
 
 .qrcode {
-    object-position: 0.19in;
+    object-position: 0.04in;
 }
 
 .page-break {

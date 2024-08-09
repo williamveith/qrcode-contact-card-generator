@@ -1,0 +1,2 @@
+# Start from the Selenium Chrome standalone image
+FROM seleniarm/standalone-chromium:latest
