@@ -3,3 +3,4 @@ __pycache__
 icon.png
 **/*contact.json
 **/*.log
+**/*.DS_Store
