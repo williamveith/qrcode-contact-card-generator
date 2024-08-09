@@ -50,10 +50,10 @@ input[type="submit"] {
     width: 200px;
     height: 50px;
     box-sizing: border-box;
-    border-width: 0px;
+    border-width: 0;
     animation: box-shadow-pulse 10s ease-in-out infinite;
     font-size: 12pt;
-    background-color: #000000;
+    background-color: #000;
     border-radius: 8px;
 }
 
