@@ -1,69 +1,17 @@
 import json
 from flask import Flask, render_template, request, redirect, url_for
-from logging_config import setup_logging
+from logger import log
+from config import *
 from pathlib import Path
-from PIL import Image
 
 app = Flask(__name__)
 
-logging_path = "logging/app.log"
-contact_path = "static/configs/contact.json"
-image_folder = "static/images"
 allowed_extensions = {"png", "jpeg", "jpg"}
-app.config["image_folder"] = image_folder
+app.config["image_folder"] = IMAGE_FOLDER
 
 
 def allowed_file(filename):
     return "." in filename and filename.rsplit(".", 1)[1].lower() in allowed_extensions
-
-
-def create_empty_png(path, width=600, height=600):
-    empty_image = Image.new("RGBA", (width, height), (255, 255, 255, 0))
-    empty_image.save(path)
-    log.info(f"Created an empty PNG file at {path}")
-
-
-def validate_paths(list_of_paths):
-    if isinstance(list_of_paths, str):
-        list_of_paths = [list_of_paths]
-
-    for path_string in list_of_paths:
-        path = Path(path_string)
-        if path.suffix == "":
-            path.mkdir(parents=True, exist_ok=True)
-            continue
-
-        path.parent.mkdir(parents=True, exist_ok=True)
-        if path.name == "contact.json" and not path.exists():
-            content = {
-                "version": "",
-                "label": "",
-                "last_name": "",
-                "first_name": "",
-                "full_name": "",
-                "organization": "",
-                "address": "",
-                "city": "",
-                "state": "",
-                "work_phone": "",
-                "cell_phone": "",
-                "fax": "",
-                "email": "",
-                "note": "",
-                "url": "",
-            }
-            with path.open("w", encoding="utf-8") as f:
-                json.dump(content, f, indent=4)
-        elif (path.name in ["icon.png", "favicon.png"]) and not path.exists():
-            create_empty_png(path=path)
-        elif not path.exists():
-            path.touch()
-
-
-validate_paths([contact_path, image_folder, logging_path])
-
-log = setup_logging(log_file=logging_path)
-
 
 def generate_vcard(contact):
     vcard = (
@@ -89,7 +37,7 @@ def generate_vcard(contact):
 @app.route("/")
 def index():
     try:
-        with open(contact_path) as f:
+        with open(CONTACT_PATH) as f:
             contact = json.load(f)
             log.info("Contact information loaded successfully")
     except FileNotFoundError as e:
@@ -127,7 +75,7 @@ def edit():
                 "url": request.form["url"],
             }
 
-            with open(contact_path, "w") as file:
+            with open(CONTACT_PATH, "w") as file:
                 json.dump(contact, file, indent=4)
             log.info("Contact information updated successfully")
         except Exception as e:
@@ -135,7 +83,7 @@ def edit():
         return redirect(url_for("index"))
 
     try:
-        with open(contact_path) as file:
+        with open(CONTACT_PATH) as file:
             contact = json.load(file)
         log.info("Loaded contact information for editing")
     except FileNotFoundError as e:
@@ -163,4 +111,4 @@ def edit_icon():
 
 if __name__ == "__main__":
     log.info("Starting the Flask application")
-    app.run()
+    app.run(host='0.0.0.0')

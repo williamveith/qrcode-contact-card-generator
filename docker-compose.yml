@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   web:
     build: .
@@ -7,13 +5,3 @@ services:
       - "5001:5000"
     environment:
       FLASK_ENV: development
-
-  chrome:
-    build:
-      context: .
-      dockerfile: Dockerfile.chrome
-    # No ports needed unless you need external access to the browser for debugging
-
-networks:
-  default:
-    # Default network configuration

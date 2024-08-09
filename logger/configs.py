@@ -1,22 +1,12 @@
 import logging
 from logging.handlers import RotatingFileHandler
 
-def setup_logging(log_level: int = logging.DEBUG, log_file: str = 'logging/app.log') -> logging.Logger:
-    """
-    Sets up the logging configuration.
-
-    Args:
-        log_level (int): The logging level (e.g., logging.DEBUG, logging.INFO).
-        log_file (str): The file where logs should be stored.
-
-    Returns:
-        logging.Logger: Configured logger instance.
-    """
+def setup_logging(log_level: int = logging.DEBUG, log_file: str = 'app.log') -> logging.Logger:
     logger = logging.getLogger('app_logger')
     logger.setLevel(log_level)
 
     file_handler = RotatingFileHandler(log_file, maxBytes=10240, backupCount=3)
-    file_handler.setLevel(logging.ERROR)
+    file_handler.setLevel(log_level)
     file_formatter = logging.Formatter(
         '%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]'
     )
