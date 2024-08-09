@@ -1,0 +1,35 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Dockerhub Build, Push",
+            "type": "shell",
+            "command": "docker build -t overtime0022/qrcode-contact-card-generator-web:latest . && docker push overtime0022/qrcode-contact-card-generator-web:latest",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Git Add, Commit, Push",
+            "type": "shell",
+            "command": "git add . && git commit -m 'VS Code Task Push' && git push && docker build -t overtime0022/qrcode-contact-card-generator-web:latest . && docker push overtime0022/qrcode-contact-card-generator-web:latest",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Git and Dockerhub Push",
+            "type": "shell",
+            "command": "docker build -t overtime0022/qrcode-contact-card-generator-web:latest . && docker push overtime0022/qrcode-contact-card-generator-web:latest && git add . && git commit -m 'Full github and dockerhub push from current local project' && git push",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        }
+    ]
+}
