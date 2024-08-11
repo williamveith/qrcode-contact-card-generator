@@ -36,9 +36,10 @@ def generate_vcard(contact):
 
 @app.route("/")
 def index():
+    TESTING_CONTACT_PATH='testing/static/configs/contact.json'
     try:
-        with open(CONTACT_PATH) as f:
-            contact = json.load(f)
+        with open(TESTING_CONTACT_PATH) as file:
+            contact = json.load(file)
             log.info("Contact information loaded successfully")
     except FileNotFoundError as e:
         log.error(f"Contact file not found: {e}")
@@ -110,5 +111,7 @@ def edit_icon():
 
 
 if __name__ == "__main__":
-    log.info("Starting the Flask application")
-    app.run(host='0.0.0.0')
+    log.info("Starting the Flask application. Open at: http://localhost:5001/")
+   # app.run(host='0.0.0.0')
+    app.run()
+    
