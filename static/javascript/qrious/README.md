@@ -1,3 +1,6 @@
+# QRious
+
+```txt
      .d88888b.  8888888b.  d8b
     d88P" "Y88b 888   Y88b Y8P
     888     888 888    888
@@ -7,6 +10,7 @@
     Y88b.Y8b88P 888  T88b  888 Y88..88P Y88b 888      X88
      "Y888888"  888   T88b 888  "Y88P"   "Y88888  88888P'
            Y8b
+```
 
 [QRious](https://github.com/neocotic/qrious) is a pure JavaScript library for generating QR codes using HTML5 canvas.
 
@@ -177,7 +181,7 @@ qr.toDataURL('image/jpeg');
 If you've been using an older major version and would like details on what's changed and information on how to migrate
 to the latest major release below:
 
-https://github.com/neocotic/qrious/wiki/Migrating-from-older-versions
+<https://github.com/neocotic/qrious/wiki/Migrating-from-older-versions>
 
 ## Bugs
 
