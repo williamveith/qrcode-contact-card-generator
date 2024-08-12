@@ -61,10 +61,6 @@ svg {
     max-height: 100%;
 }
 
-.qrcode {
-    object-position: 0.17in;
-}
-
 .page-break {
     page-break-before: always;
 }
