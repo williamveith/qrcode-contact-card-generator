@@ -1,25 +1,25 @@
 # Ignore development environment directories and files
-.vscode/           # Visual Studio Code settings
-.git/              # Git version control directory
-venv               # Python virtual environment directory
+.vscode
+.git
+venv
 
 # Ignore Python cache files
-**/*__pycache__    # Python bytecode cache directories
+**/*__pycache__
 
 # Ignore project-specific configuration files
-.gitignore         # Git ignore file
-.dockerignore      # Docker ignore file
-Dockerfile         # Dockerfile for building the image
-docker-compose.yml # Docker Compose configuration file
+.gitignore
+.dockerignore
+Dockerfile
+docker-compose.yml
 
 # Ignore documentation and temporary files
-**/*.md            # Markdown files, typically documentation
-**/*.DS_Store      # macOS directory metadata
-**/*.log           # Log files
+**/*.md
+**/*.DS_Store
+**/*.log
 
 # Ignore specific data files
-**/*contact.json   # Contact data in JSON format
-**/*icon.png       # Icon files in PNG format
+**/*contact.json
+**/*icon.png
 
 # Ignore everything in the qrious directory
 static/javascript/qrious/*

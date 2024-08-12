@@ -3,6 +3,13 @@
         size: 8.5in 11in;
         margin: 0.5in
     }
+
+    @media print {
+        * {
+            background-color: white !important;
+            color: black;
+        }
+    }
     
     body::after {
         font-family: 'Courier New', Courier, monospace;
@@ -20,10 +27,65 @@
     .buttons {
         display: none;
     }
+
+    .page-break {
+        page-break-before: always;
+    }
+}
+
+@font-face {
+    font-family: 'IBM Plex Mono';
+    font-weight: normal;
+    font-style: normal;
+    src: url('../fonts/IBM_Plex_Mono/IBMPlexMono-Regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'IBM Plex Mono';
+    font-weight: normal;
+    font-style: italic;
+    src: url('../fonts/IBM_Plex_Mono/IBMPlexMono-Italic.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'IBM Plex Mono';
+    font-weight: bold;
+    font-style: normal;
+    src: url('../fonts/IBM_Plex_Mono/IBMPlexMono-Bold.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'IBM Plex Mono';
+    font-weight: bold;
+    font-style: italic;
+    src: url('../fonts/IBM_Plex_Mono/IBMPlexMono-BoldItalic.woff2') format('woff2');
+}
+
+@keyframes box-shadow-pulse {
+    0%,
+    100% {
+        box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem #5200ff;
+    }
+
+    50% {
+        box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem #3900b3;
+    }
+}
+
+@keyframes box-shadow-pulse-hover {
+    0%,
+    100% {
+        box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem #002eff;
+    }
+
+    50% {
+        box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem #00aeff;
+    }
 }
 
 * {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'IBM Plex Mono', monospace;
+    color: white;
 }
 
 body {
@@ -34,6 +96,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: #000e;
 }
 
 table {
@@ -42,17 +105,14 @@ table {
 }
 
 td {
-    border-style: dashed;
-    border-color: lightgray;
-    border-width: 0.5pt;
-}
-
-td {
     padding: 0;
     width: 2.25in;
     height: 3.25in;
     text-align: center;
     vertical-align: middle;
+    border-style: dashed;
+    border-color: lightgray;
+    border-width: 0.5pt;
 }
 
 img,
@@ -61,6 +121,72 @@ svg {
     max-height: 100%;
 }
 
-.page-break {
-    page-break-before: always;
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100vw;
+    padding: 12px 20px;
+    margin: 8px 0;
+    font-size: 12pt;
+    background-color: #000;
+}
+
+textarea {
+    height: 150px;
+}
+
+button,
+input[type="text"],
+input[type="email"],
+input[type="submit"],
+textarea {
+    animation: box-shadow-pulse 10s ease-in-out infinite;
+    box-sizing: border-box;
+    border-width: 0;
+    border-radius: 8px;
+    resize: none;
+}
+
+button:hover,
+input[type="text"]:hover,
+input[type="email"]:hover,
+input[type="submit"]:hover,
+textarea:hover,
+button:active,
+input[type="text"]:active,
+input[type="email"]:active,
+input[type="submit"]:active,
+textarea:active,
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    animation: box-shadow-pulse-hover 10s ease-in-out infinite;
+    outline-width: 0;
+}
+
+label {
+    font-weight: bold;
+    color: white;
+}
+
+pre {
+    font-weight: bold;
+}
+
+button,
+input[type="submit"] {
+    width: 200px;
+    height: 50px;
+    font-size: 12pt;
+    background-color: #000;
+}
+
+input[type="submit"] {
+    margin-top: 20px;
+    width: 200px;
+    height: 50px;
+}
+
+.buttons {
+    margin-bottom: 20px;
 }

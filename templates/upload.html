@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/general.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
-    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.png') }}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/general.css') }}" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{{ url_for('static', filename='images/favicon.png') }}" />
     <title>Upload Icon</title>
-</head>
-<body>
+  </head>
+  <body>
+    <div class="buttons">
+      <button onclick="window.location.href='/edit'">View Badge</button>
+      <button onclick="window.location.href='/edit-icon'">Change Icon</button>
+    </div>
     <h1>Upload New Contact Icon</h1>
     <form method="post" enctype="multipart/form-data">
-        <input type="file" name="file" accept=".png, .jpeg, .jpg">
-        <br>
-        <input type="submit" value="Upload">
+      <input type="file" name="file" accept=".png, .jpeg, .jpg" />
+      <br />
+      <input type="submit" value="Upload" />
     </form>
-</body>
+  </body>
 </html>
