@@ -2,30 +2,35 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/general.css') }}">
-    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.png') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/general.css') }}" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{{ url_for('static', filename='images/favicon.png') }}" />
     <title>QR Contact Card</title>
   </head>
   <body>
-    <div class="buttons">
+    <div class="navbar">
       <button onclick="window.print()">Print</button>
       <button onclick="window.location.href='/edit'">Edit Contact</button>
       <button onclick="window.location.href='/edit-icon'">Change Icon</button>
-  </div>
+    </div>
     <div class="page">
       <table>
         {% for row in range(3) %}
         <tr>
-            {% for col in range(3) %}
-            <td>
-                <canvas id="image-{{ row*3 + col + 1 }}" class="qrcode"></canvas>
-                <pre>{{ business_name }}</pre>
-            </td>
-            {% endfor %}
+          {% for col in range(3) %}
+          <td>
+            <canvas id="image-{{ row*3 + col + 1 }}" class="qrcode"></canvas>
+            <pre>{{ business_name }}</pre>
+          </td>
+          {% endfor %}
         </tr>
         {% endfor %}
-    </table>
+      </table>
     </div>
     <div class="page-break"></div>
     <div class="page">
@@ -35,8 +40,7 @@
           {% for col in range(3) %}
           <td>
             <img
-              src="{{ url_for('static', filename='images/icon.png') }}"
-              alt="Contact Image {{ row*3 + col + 1 }}" />
+              src="{{ url_for('static', filename='images/icon.png') }}" onerror="this.style.display='none'"/>
             <pre>{{ business_name }}</pre>
           </td>
           {% endfor %}
@@ -47,25 +51,25 @@
     <script src="{{ url_for('static', filename='javascript/qrious/dist/qrious.min.js') }}"></script>
     <script>
       function addQRCode(elementId, url) {
-          new QRious({
-              element: document.getElementById(elementId),
-              background: 'white',
-              backgroundAlpha: 1,
-              foreground: 'black',
-              foregroundAlpha: 1,
-              level: 'L',
-              padding: null,
-              size: 215,
-              value: url
-          });
-          test= new QRious()
-          console.log(test)
+        new QRious({
+          element: document.getElementById(elementId),
+          background: "white",
+          backgroundAlpha: 1,
+          foreground: "black",
+          foregroundAlpha: 1,
+          level: "L",
+          padding: null,
+          size: 215,
+          value: url
+        });
+        test = new QRious();
+        console.log(test);
       }
 
-      document.addEventListener("DOMContentLoaded", function() {
+      document.addEventListener("DOMContentLoaded", function () {
         const vcard = `{{ vcard }}`;
         for (let i = 1; i <= 9; i++) {
-            addQRCode(`image-${i}`, vcard);
+          addQRCode(`image-${i}`, vcard);
         }
       });
     </script>

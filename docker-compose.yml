@@ -1,8 +1,6 @@
 services:
   web:
     build: .
+    image: overtime0022/qrcode-contact-card-generator:latest
     ports:
       - "5001:8000"
-    environment:
-      FLASK_ENV: development
-    command: gunicorn -w 4 -b :8000 app:app

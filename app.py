@@ -110,6 +110,8 @@ def edit_icon():
 
 
 if __name__ == "__main__":
-    log.info("Starting the Flask application. Open at: http://localhost:5001/")
-    app.run()
-    
+    options = {
+        'bind': '0.0.0.0:8000',
+        'workers': 4,
+    }
+    StandaloneGunicornApp(app, options).run()

@@ -30,3 +30,10 @@ static/javascript/qrious/*
 # Ignore everything in the dist directory except qrious.min.js
 static/javascript/qrious/dist/*
 !static/javascript/qrious/dist/qrious.min.js
+
+# Ignore unused fonts
+static/fonts/IBM_Plex_Mono/*
+!static/fonts/IBM_Plex_Mono/IBMPlexMono-Bold.woff2
+!static/fonts/IBM_Plex_Mono/IBMPlexMono-Regular.woff2
+!static/fonts/IBM_Plex_Mono/IBMPlexMono-Italic.woff2
+!static/fonts/IBM_Plex_Mono/IBMPlexMono-BoldItalic.woff2
